@@ -14,6 +14,7 @@ let total_duration = document.querySelector('.total-duration');
 let wave = document.getElementById('wave');
 let randomIcon = document.querySelector('.fa-random');
 let curr_track = document.createElement('audio');
+document.body.appendChild(curr_track);
 
 let track_index = 0;
 let isPlaying = false;
@@ -108,12 +109,20 @@ function playpauseTrack(){
     isPlaying ? pauseTrack() : playTrack();
 }
 function playTrack(){
-    curr_track.play();
-    isPlaying = true;
-    track_art.classList.add('rotate');
-    wave.classList.add('loader');
-    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+    curr_track.volume = 1;
+
+    curr_track.play()
+      .then(() => {
+        isPlaying = true;
+        track_art.classList.add('rotate');
+        wave.classList.add('loader');
+        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+      })
+      .catch(err => {
+        console.log("Play blocked:", err);
+      });
 }
+
 function pauseTrack(){
     curr_track.pause();
     isPlaying = false;
@@ -170,3 +179,4 @@ function setUpdate(){
     }
 
 }
+
