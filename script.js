@@ -102,7 +102,7 @@ function pauseRandom(){
 function repeatTrack(){
     let current_index = track_index;
     loadTrack(current_index);
-    playTrack();
+   // playTrack();
 }
 function playpauseTrack(){
     isPlaying ? pauseTrack() : playTrack();
@@ -131,7 +131,7 @@ function nextTrack(){
         track_index = 0;
     }
     loadTrack(track_index);
-    playTrack();
+   // playTrack();
 }
 function prevTrack(){
     if(track_index > 0){
@@ -140,7 +140,7 @@ function prevTrack(){
         track_index = music_list.length -1;
     }
     loadTrack(track_index);
-    playTrack();
+   // playTrack();
 }
 function seekTo(){
     let seekto = curr_track.duration * (seek_slider.value / 100);
@@ -168,4 +168,5 @@ function setUpdate(){
         curr_time.textContent = currentMinutes + ":" + currentSeconds;
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
     }
+
 }
