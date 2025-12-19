@@ -35,12 +35,7 @@ const music_list = [
         artist : 'Afsana Khan, Shashwat Sachdev, and Reble',
         music : 'music/naal_nachna.mp3'
     },
-    {
-        img : 'images/run_down_the_city.jpg',
-        name : 'Run Down the City',
-        artist : 'Reble, Shashwat Sachdev, Asha Bhosle, R.D. Burman',
-        music : 'music/run_down_the_city.mp3'
-    }
+   
 
     
 ];
@@ -179,4 +174,5 @@ function setUpdate(){
     }
 
 }
+
 
