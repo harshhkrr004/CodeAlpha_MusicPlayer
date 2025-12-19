@@ -14,7 +14,6 @@ let total_duration = document.querySelector('.total-duration');
 let wave = document.getElementById('wave');
 let randomIcon = document.querySelector('.fa-random');
 let curr_track = document.createElement('audio');
-document.body.appendChild(curr_track);
 
 let track_index = 0;
 let isPlaying = false;
@@ -35,9 +34,13 @@ const music_list = [
         artist : 'Afsana Khan, Shashwat Sachdev, and Reble',
         music : 'music/naal_nachna.mp3'
     },
-   
+   {
+    img : 'images/Run_Down_The_City.jpg',
+    name : 'Run Down the City',
+    artist : 'Reble, Shashwat Sachdev, Asha Bhosle, R.D. Burman',
+    music : 'music/Run_Down_The_City.mp3'
+}
 
-    
 ];
 
 loadTrack(track_index);
@@ -98,26 +101,18 @@ function pauseRandom(){
 function repeatTrack(){
     let current_index = track_index;
     loadTrack(current_index);
-   // playTrack();
+    playTrack();
 }
 function playpauseTrack(){
     isPlaying ? pauseTrack() : playTrack();
 }
 function playTrack(){
-    curr_track.volume = 1;
-
-    curr_track.play()
-      .then(() => {
-        isPlaying = true;
-        track_art.classList.add('rotate');
-        wave.classList.add('loader');
-        playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
-      })
-      .catch(err => {
-        console.log("Play blocked:", err);
-      });
+    curr_track.play();
+    isPlaying = true;
+    track_art.classList.add('rotate');
+    wave.classList.add('loader');
+    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
-
 function pauseTrack(){
     curr_track.pause();
     isPlaying = false;
@@ -135,7 +130,7 @@ function nextTrack(){
         track_index = 0;
     }
     loadTrack(track_index);
-   // playTrack();
+    playTrack();
 }
 function prevTrack(){
     if(track_index > 0){
@@ -144,7 +139,7 @@ function prevTrack(){
         track_index = music_list.length -1;
     }
     loadTrack(track_index);
-   // playTrack();
+    playTrack();
 }
 function seekTo(){
     let seekto = curr_track.duration * (seek_slider.value / 100);
@@ -172,7 +167,4 @@ function setUpdate(){
         curr_time.textContent = currentMinutes + ":" + currentSeconds;
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
     }
-
 }
-
-
