@@ -35,10 +35,10 @@ const music_list = [
         music : 'music/naal_nachna.mp3'
     },
    {
-    img : 'images/Run_Down_The_City.jpg',
+    img : 'images/rundown.jpg',
     name : 'Run Down the City',
     artist : 'Reble, Shashwat Sachdev, Asha Bhosle, R.D. Burman',
-    music : 'music/Run_Down_The_City.mp3'
+    music : 'music/rundown.mp3'
 }
 
 ];
